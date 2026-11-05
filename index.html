@@ -59,8 +59,8 @@ a:hover{border-bottom-width:2px}
 
 /* ---------- motion ---------- */
 .intro{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:var(--paper);pointer-events:none;animation:introOut .55s var(--ease) 1.75s forwards}
-.mark{display:flex;flex-direction:column;align-items:flex-end;font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink)}
-.mark .corp{order:2;font-weight:700;font-size:clamp(14px,3.8vw,20px);letter-spacing:0.32em;margin:0.25em -0.32em 0 0;opacity:0;animation:corp .6s var(--ease) .75s both}
+.mark{display:flex;flex-direction:column;align-items:flex-start;font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink)}
+.mark .corp{order:0;font-weight:700;font-size:clamp(14px,3.8vw,20px);letter-spacing:0.32em;margin:0 0 0.5em 0.1em;opacity:0;animation:corp .6s var(--ease) .75s both}
 .mark .big{order:1;display:flex;font-family:'Black Han Sans','Gothic A1',sans-serif;font-weight:400;font-size:clamp(104px,32vw,180px);line-height:1;letter-spacing:-0.04em}
 .mark .big i{font-style:normal;display:inline-block;opacity:0;transform-origin:50% 60%;animation:stamp .42s cubic-bezier(.2,1.4,.4,1) both}
 .mark .big i:nth-child(1){animation-delay:.08s}
