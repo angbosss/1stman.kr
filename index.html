@@ -17,20 +17,21 @@
 :root{--ink:#000;--paper:#fff;--grey:#767676;--pad:clamp(20px,6vw,36px);--gungsuh:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center}
 body{font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-feature-settings:'tnum' 1;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
 a:hover{border-bottom-width:2px}
 
 /* one vertical sheet, centred on wide screens */
-.page{width:100%;max-width:480px;margin:0 auto;min-height:100vh;min-height:100dvh;padding:var(--pad) var(--pad) 10px;display:grid;grid-template-rows:auto 1fr auto;gap:16px}
+.page{width:100%;max-width:440px;margin:0 auto;min-height:100vh;min-height:100dvh;padding:var(--pad) var(--pad) 10px;display:grid;grid-template-rows:auto 1fr auto;gap:16px}
 
 .top{padding-top:14px;position:relative}
-.slogan{margin:0;font-size:clamp(38px,11vw,52px);line-height:1.02;font-weight:700;letter-spacing:-0.035em}
+.slogan{margin:0;font-size:clamp(36px,10.6vw,44px);line-height:1.02;font-weight:700;letter-spacing:-0.035em}
 .line{display:block;overflow:hidden;padding-bottom:0.08em}
 .line > span{display:block}
 
 .stage{display:flex;flex-direction:column}
-.portrait{--s:min(46vh,80vw,370px);width:var(--s);height:var(--s);margin:auto;position:relative;top:calc(var(--s) * -0.08);display:flex;align-items:center;justify-content:center}
+.portrait{--s:min(44vh,78vw,340px);width:var(--s);height:var(--s);margin:auto;position:relative;top:calc(var(--s) * 0.04);display:flex;align-items:center;justify-content:center}
 .nod{height:var(--s);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
 .sub{margin:0;text-align:right;font-size:16px;line-height:1.25;font-weight:500;letter-spacing:-0.01em}
 
@@ -39,6 +40,7 @@ a:hover{border-bottom-width:2px}
 .info .blk{display:flex;flex-direction:column}
 .info .blk > *{display:block;white-space:nowrap}
 .info .hd{font-weight:700}
+.info .blk span.ko:not(.hd){font-weight:500}
 .info .ko{font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:700;letter-spacing:-0.03em}
 .info .gap{height:1.4em}
 
@@ -82,6 +84,7 @@ a:hover{border-bottom-width:2px}
   .line>span,.portrait,.sub,.info .blk,.top::before,.base::before{animation:none;transform:none;opacity:1;filter:none}
   .nod{animation:none;transform:rotate(30deg)}
 }
+@media (min-width:600px) and (min-height:700px){.page{min-height:0;height:min(100dvh,820px);--pad:28px}}
 </style>
 </head>
 <body>
@@ -112,6 +115,7 @@ a:hover{border-bottom-width:2px}
         <span class="hd">An Se Hwan</span>
         <span>CEO</span>
         <span class="gap" aria-hidden="true"></span>
+        <span class="ko">안세환</span>
         <span><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></span>
       </div>
     </div>
