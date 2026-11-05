@@ -105,7 +105,14 @@ a:hover{border-bottom-width:2px}
 
 /* ---------- about sheet (opens from the face) ---------- */
 .portrait{cursor:pointer;-webkit-tap-highlight-color:transparent;border:0;background:none;padding:0;color:inherit}
-.portrait:focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+.portrait:focus{outline:none}
+.portrait:focus-visible{outline:none}
+/* tap hint: the face breathes bigger a couple of times, and grows on hover/press */
+.portrait .nod{transition:scale .35s var(--ease)}
+.portrait:hover .nod{scale:1.07}
+.portrait:active .nod{scale:0.97}
+.portrait.hint .nod{animation:nod 6s ease-in-out 3.45s infinite both, hint 1.6s var(--ease) 4.2s 2}
+@keyframes hint{0%,100%{scale:1}45%{scale:1.12}}
 html.lock,html.lock body{overflow:hidden}
 .about{position:fixed;inset:0;z-index:20;background:var(--paper);overflow-y:auto;-webkit-overflow-scrolling:touch;
   transform:translateY(100%);visibility:hidden;transition:transform .8s var(--ease),visibility 0s linear .8s}
@@ -150,7 +157,7 @@ html.lock,html.lock body{overflow:hidden}
   </header>
 
   <main class="stage">
-    <button class="portrait" type="button" aria-label="About An Se Hwan" aria-controls="about" aria-expanded="false">
+    <button class="portrait hint" type="button" aria-label="About An Se Hwan" aria-controls="about" aria-expanded="false">
       <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
     </button>
     <p class="sub">Imported. Tried.<br>Approved.</p>
@@ -227,7 +234,7 @@ html.lock,html.lock body{overflow:hidden}
   function shut(){
     sheet.classList.remove('open'); sheet.setAttribute('aria-hidden','true');
     face.setAttribute('aria-expanded','false'); root.classList.remove('lock');
-    if(io) io.disconnect(); face.focus({preventScroll:true});
+    if(io) io.disconnect(); face.blur();
   }
   var leaving=false;
   sheet.addEventListener('scroll',function(){
