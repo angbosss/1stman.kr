@@ -58,34 +58,41 @@ a:hover{border-bottom-width:2px}
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
 
 /* ---------- motion ---------- */
-.intro{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:var(--paper);pointer-events:none;animation:introOut .6s var(--ease) 1.4s forwards}
-.intro span{font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:900;font-size:clamp(40px,12vw,72px);letter-spacing:-0.05em;white-space:nowrap;animation:introIn .8s var(--ease) both}
-@keyframes introIn{from{opacity:0;letter-spacing:0.12em;filter:blur(6px)}to{opacity:1;letter-spacing:-0.05em;filter:none}}
-@keyframes introOut{to{opacity:0;transform:scale(1.04);visibility:hidden}}
+.intro{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:var(--paper);pointer-events:none;animation:introOut .55s var(--ease) 1.75s forwards}
+.mark{display:flex;flex-direction:column;align-items:flex-start;font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink)}
+.mark .corp{font-weight:700;font-size:clamp(14px,3.6vw,20px);letter-spacing:0.32em;margin:0 0 0.35em 0.08em;opacity:0;animation:corp .6s var(--ease) .75s both}
+.mark .big{display:flex;font-weight:900;font-size:clamp(84px,26vw,150px);line-height:0.86;letter-spacing:-0.06em}
+.mark .big i{font-style:normal;display:inline-block;opacity:0;transform-origin:50% 60%;animation:stamp .42s cubic-bezier(.2,1.4,.4,1) both}
+.mark .big i:nth-child(1){animation-delay:.08s}
+.mark .big i:nth-child(2){animation-delay:.28s}
+.mark .big i:nth-child(3){animation-delay:.48s}
+@keyframes stamp{0%{opacity:0;transform:scale(1.7);filter:blur(4px)}60%{opacity:1;filter:none}100%{opacity:1;transform:scale(1)}}
+@keyframes corp{from{opacity:0;transform:translateY(8px);letter-spacing:0.6em}to{opacity:1;transform:none;letter-spacing:0.32em}}
+@keyframes introOut{to{opacity:0;transform:scale(1.03);visibility:hidden}}
 
 /* rules draw left to right */
 .top::before,.base::before{content:"";position:absolute;left:0;top:0;height:1px;width:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(0);animation:draw .9s var(--ease) both}
-.top::before{animation-delay:1.85s}
-.base::before{animation-delay:2.7s}
+.top::before{animation-delay:2.20s}
+.base::before{animation-delay:3.05s}
 @keyframes draw{to{transform:scaleX(1)}}
 
 /* slogan lines slide up out of a mask */
 .line > span{transform:translateY(105%);animation:up .9s var(--ease) both}
-.l1 > span{animation-delay:1.95s}
-.l2 > span{animation-delay:2.07s}
+.l1 > span{animation-delay:2.30s}
+.l2 > span{animation-delay:2.42s}
 @keyframes up{to{transform:none}}
 
 /* face drops in with a spring, then starts nodding */
-.portrait{animation:pop .9s cubic-bezier(.34,1.56,.64,1) 2.2s both}
+.portrait{animation:pop .9s cubic-bezier(.34,1.56,.64,1) 2.55s both}
 @keyframes pop{from{opacity:0;transform:translateY(-28px) scale(.82)}to{opacity:1;transform:none}}
-.nod{animation-delay:3.1s;animation-fill-mode:both}
+.nod{animation-delay:3.45s;animation-fill-mode:both}
 
 /* sub line comes into focus */
-.sub{animation:focus .8s var(--ease) 2.65s both}
+.sub{animation:focus .8s var(--ease) 3.00s both}
 @keyframes focus{from{opacity:0;filter:blur(8px);transform:translateX(12px)}to{opacity:1;filter:none;transform:none}}
 
 /* info rows rise one by one */
-.info .blk{animation:rise .7s var(--ease) both;animation-delay:calc(2.85s + var(--i,0) * 80ms)}
+.info .blk{animation:rise .7s var(--ease) both;animation-delay:calc(3.20s + var(--i,0) * 80ms)}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 @keyframes track{from{opacity:0;letter-spacing:0.3em}to{opacity:1;letter-spacing:normal}}
@@ -99,7 +106,7 @@ a:hover{border-bottom-width:2px}
 </style>
 </head>
 <body>
-<div class="intro" aria-hidden="true"><span>주식회사 일인자</span></div>
+<div class="intro" aria-hidden="true"><div class="mark"><span class="corp">주식회사</span><span class="big"><i>일</i><i>인</i><i>자</i></span></div></div>
 <div class="page">
 
   <header class="top">
