@@ -104,7 +104,9 @@ a:hover{border-bottom-width:2px}
 }
 
 /* ---------- about sheet (opens from the face) ---------- */
-.portrait{cursor:pointer;-webkit-tap-highlight-color:transparent;border:0;background:none;padding:0;color:inherit}
+.portrait{cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;appearance:none;border:0;border-radius:0;background:none;box-shadow:none;padding:0;color:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button:focus,button:focus-visible,a:focus{outline:none;box-shadow:none}
 .portrait:focus{outline:none}
 .portrait:focus-visible{outline:none}
 /* tap hint: the face breathes bigger a couple of times, and grows on hover/press */
@@ -120,7 +122,7 @@ html.lock,html.lock body{overflow:hidden}
 .ab{width:100%;max-width:440px;margin:0 auto;padding:var(--pad)}
 .ab-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;background:var(--paper);
   padding:14px 0 10px;border-bottom:1px solid var(--ink);font-size:12px;letter-spacing:0.08em;font-weight:600}
-.ab-close{font:inherit;letter-spacing:inherit;background:none;border:0;padding:12px 0 12px 16px;margin:-12px 0;cursor:pointer;color:inherit}
+.ab-close{-webkit-appearance:none;appearance:none;border-radius:0;box-shadow:none;font:inherit;letter-spacing:inherit;background:none;border:0;padding:12px 0 12px 16px;margin:-12px 0;cursor:pointer;color:inherit}
 .sec{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:48px 0;border-bottom:1px solid #e3e3e3}
 .sec:last-child{border-bottom:0;min-height:52vh}
 .lbl2{font-size:12px;letter-spacing:0.08em;font-weight:600;margin:0 0 22px}
@@ -229,12 +231,11 @@ html.lock,html.lock body{overflow:hidden}
     sheet.classList.add('open'); sheet.setAttribute('aria-hidden','false');
     face.setAttribute('aria-expanded','true'); root.classList.add('lock');
     if(io){ items.forEach(function(el){io.observe(el);}); } else { items.forEach(function(el){el.classList.add('in');}); }
-    setTimeout(function(){close.focus({preventScroll:true});},300);
   }
   function shut(){
     sheet.classList.remove('open'); sheet.setAttribute('aria-hidden','true');
     face.setAttribute('aria-expanded','false'); root.classList.remove('lock');
-    if(io) io.disconnect(); face.blur();
+    if(io) io.disconnect(); if(document.activeElement) document.activeElement.blur();
   }
   var leaving=false;
   sheet.addEventListener('scroll',function(){
