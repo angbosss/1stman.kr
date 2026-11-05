@@ -27,9 +27,9 @@ a:hover{border-bottom-width:2px}
 .idx{display:block;font-size:11px;color:#767676;margin-bottom:6px;font-weight:500}
 .c1{grid-column:1/4}.c2{grid-column:4/7}.c3{grid-column:7/10}.c4{grid-column:10/13;text-align:right}
 .stage{position:relative;display:grid;place-items:center;align-content:center;gap:clamp(8px,1.6vh,20px)}
-.portrait{position:relative;--s:min(clamp(200px,40vh,440px),64vw);width:var(--s);height:var(--s);display:flex;align-items:center;justify-content:center}
+.portrait{position:relative;--s:min(clamp(220px,50vh,520px),70vw);width:var(--s);height:var(--s);display:flex;align-items:center;justify-content:center}
 .nod{position:relative;height:var(--s);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
-h1{margin:0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;font-weight:400;font-size:clamp(40px,min(8.6vw,13vh),150px);line-height:1;letter-spacing:0.06em;white-space:nowrap}
+.kname{display:block;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;font-size:clamp(20px,1.7vw,26px);line-height:1.15;letter-spacing:0.04em;margin-bottom:4px}
 .sell{display:block;font-size:12px;line-height:1.35;font-weight:700;text-transform:uppercase;letter-spacing:0.04em}
 .say{margin:0;font-size:clamp(20px,2.4vw,38px);line-height:1.08;font-weight:500;letter-spacing:-0.025em}
 .t1{grid-column:1/7}.t2{grid-column:7/13}
@@ -70,11 +70,10 @@ h1{margin:0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',se
     <div class="portrait">
       <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
     </div>
-    <h1 class="rise" style="--i:2">주식회사 일인자</h1>
   </main>
 
   <footer class="row foot">
-    <div class="cell c1 rise" style="--i:3"><span class="idx">Company</span><b>주식회사 일인자</b><br>1STMAN CO., LTD.</div>
+    <div class="cell c1 rise" style="--i:3"><span class="idx">Company</span><span class="kname">주식회사 일인자</span>1STMAN CO., LTD.</div>
     <div class="cell c2 rise" style="--i:4"><span class="idx">What we do</span>Import &amp; Distribution<br>Since 2008 · Est. 2014</div>
     <div class="cell c3 rise" style="--i:5"><span class="idx">Contact</span>An Se Hwan · 안세환<br><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></div>
     <div class="cell c4 rise" style="--i:6"><span class="idx">Visit</span>B1, 35, Dosan-daero 85-gil<br>Gangnam-gu, Seoul, Korea</div>
