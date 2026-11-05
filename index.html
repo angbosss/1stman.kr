@@ -22,9 +22,10 @@ a:hover{text-decoration:underline;text-underline-offset:5px}
 .bar{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em}
 .bar a{display:inline-flex;align-items:center;min-height:44px}
 main{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
-.nod{height:clamp(180px,34vh,380px);width:auto;display:block;transform-origin:50% 96%;animation:nod 6s ease-in-out infinite}
+.nod{height:clamp(180px,34vh,380px);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
 h1{margin:32px 0 0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;font-weight:400;font-size:clamp(44px,min(10vw,16vh),168px);line-height:1.1;letter-spacing:0.04em;white-space:nowrap}
 p{margin:20px 0 0;font-weight:500;font-size:clamp(18px,2vw,26px);line-height:1.5;letter-spacing:-0.01em}
+p.sell{margin:14px 0 0;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase}
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
 @media (prefers-reduced-motion: reduce){.nod{animation:none;transform:rotate(30deg)}}
 @media (max-width:480px){.page{padding:20px 16px}}
@@ -34,12 +35,13 @@ p{margin:20px 0 0;font-weight:500;font-size:clamp(18px,2vw,26px);line-height:1.5
 <div class="page">
   <header class="bar">
     <span>일인자 · 1STMAN CO., LTD.</span>
-    <span>SEOUL</span>
+    <span style="text-align:right">B1, 35, Dosan-daero 85-gil, Gangnam-gu, Seoul, Korea</span>
   </header>
   <main>
     <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
     <h1>주식회사 일인자</h1>
     <p>The man who will change the world.<br>Just so you know.</p>
+    <p class="sell">We sell the real thing. Exceptionally well.</p>
   </main>
   <footer class="bar">
     <span>AN SE HWAN · 안세환</span>
