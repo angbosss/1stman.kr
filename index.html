@@ -3,50 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>1STMAN</title>
+<title>주식회사 일인자 — 1STMAN</title>
 <meta name="description" content="1STMAN CO., LTD. — An Se Hwan, Seoul.">
-<meta property="og:title" content="1STMAN">
+<meta property="og:title" content="주식회사 일인자 — 1STMAN">
 <meta property="og:description" content="The man who will change the world. Just so you know.">
 <meta property="og:image" content="https://1stman.kr/og.png">
 <meta property="og:url" content="https://1stman.kr/">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;900&family=Song+Myung&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;background:#FFFFFF;color:#000000}
-body{font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:5px}
-.page{width:100%;min-height:100vh;min-height:100dvh;box-sizing:border-box;padding:24px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
-.bar{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em}
-.bar a{display:inline-flex;align-items:center;min-height:44px}
-main{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
-.nod{height:clamp(180px,34vh,380px);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
-h1{margin:32px 0 0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;font-weight:400;font-size:clamp(44px,min(10vw,16vh),168px);line-height:1.1;letter-spacing:0.04em;white-space:nowrap}
-p{margin:20px 0 0;font-weight:500;font-size:clamp(18px,2vw,26px);line-height:1.5;letter-spacing:-0.01em}
-p.sell{margin:14px 0 0;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.12em;text-transform:uppercase}
+:root{--ink:#000;--paper:#fff;--red:#E4002B;--rule:#000;--pad:clamp(16px,2.2vw,32px);--gap:clamp(12px,1.6vw,24px)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-feature-settings:'tnum' 1,'ss01' 1;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+a:hover{color:var(--red)}
+.page{min-height:100vh;min-height:100dvh;padding:var(--pad);display:grid;grid-template-rows:auto 1fr auto;gap:var(--gap)}
+.row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);border-top:1px solid var(--rule);padding-top:10px}
+.cell{font-size:12px;line-height:1.35;letter-spacing:0.005em}
+.cell b{font-weight:700}
+.idx{display:block;font-size:11px;color:var(--red);margin-bottom:6px;font-weight:500}
+.c1{grid-column:1/4}.c2{grid-column:4/7}.c3{grid-column:7/10}.c4{grid-column:10/13;text-align:right}
+.stage{position:relative;display:grid;place-items:center;align-content:center;gap:clamp(8px,1.6vh,20px)}
+.portrait{position:relative;--s:min(clamp(200px,40vh,440px),64vw);width:var(--s);height:var(--s);display:flex;align-items:center;justify-content:center}
+.disc{position:absolute;width:40%;aspect-ratio:1/1;border-radius:50%;background:var(--red);left:76%;top:-2%}
+.nod{position:relative;height:var(--s);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
+h1{margin:0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;font-weight:400;font-size:clamp(40px,min(8.6vw,13vh),150px);line-height:1;letter-spacing:0.06em;white-space:nowrap}
+.foot .say{font-size:clamp(18px,1.9vw,30px);line-height:1.12;font-weight:500;letter-spacing:-0.02em}
+.foot .sell{font-size:12px;line-height:1.35;font-weight:700;text-transform:uppercase;letter-spacing:0.04em}
+.foot .c1{grid-column:1/6}.foot .c3{grid-column:7/10}.foot .c4{grid-column:10/13}
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
 @media (prefers-reduced-motion: reduce){.nod{animation:none;transform:rotate(30deg)}}
-@media (max-width:480px){.page{padding:20px 16px}}
+@media (max-width:720px){
+  .row{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:14px}
+  .c1,.c2,.c3,.c4,.foot .c1,.foot .c3,.foot .c4{grid-column:auto/span 2;text-align:left}
+  .foot .c1{grid-column:1/-1}
+}
 </style>
 </head>
 <body>
 <div class="page">
-  <header class="bar">
-    <span>일인자 · 1STMAN CO., LTD.</span>
-    <span style="text-align:right">B1, 35, Dosan-daero 85-gil, Gangnam-gu, Seoul, Korea</span>
+
+  <header class="row">
+    <div class="cell c1"><span class="idx">01</span><b>주식회사 일인자</b><br>1STMAN CO., LTD.</div>
+    <div class="cell c2"><span class="idx">02</span>Import &amp; Distribution<br>Est. 2014</div>
+    <div class="cell c3"><span class="idx">03</span>B1, 35, Dosan-daero 85-gil<br>Gangnam-gu, Seoul, Korea</div>
+    <div class="cell c4"><span class="idx">04</span>An Se Hwan<br>안세환</div>
   </header>
-  <main>
-    <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
+
+  <main class="stage">
+    <div class="portrait">
+      <span class="disc" aria-hidden="true"></span>
+      <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
+    </div>
     <h1>주식회사 일인자</h1>
-    <p>The man who will change the world.<br>Just so you know.</p>
-    <p class="sell">We sell the real thing. Exceptionally well.</p>
   </main>
-  <footer class="bar">
-    <span>AN SE HWAN · 안세환</span>
-    <a href="mailto:ash@1stman.kr">ash@1stman.kr</a>
+
+  <footer class="row foot">
+    <div class="cell c1"><p class="say" style="margin:0">The man who will change the world.<br>Just so you know.</p></div>
+    <div class="cell c3"><span class="idx">05</span><p class="sell" style="margin:0">We sell the real thing.<br>Exceptionally well.</p></div>
+    <div class="cell c4"><span class="idx">06</span><a href="mailto:ash@1stman.kr">ash@1stman.kr</a><br>1stman.kr</div>
   </footer>
+
 </div>
 </body>
 </html>
