@@ -129,6 +129,7 @@ html.lock,html.lock body{overflow:hidden}
 .words + p{margin:22px 0 0;font-size:16px;font-weight:500;text-align:right}
 .now{margin:0;font-weight:700;font-size:clamp(36px,10.6vw,44px);line-height:1.02;letter-spacing:-0.035em}
 .mail{display:inline-block;margin-top:28px;font-size:18px;font-weight:600}
+.endzone{height:45vh;display:flex;align-items:flex-start;justify-content:center;padding-top:24px;font-size:18px;color:var(--grey)}
 
 /* scroll reveal: pieces gather as they arrive */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease),letter-spacing .9s var(--ease)}
@@ -204,6 +205,7 @@ html.lock,html.lock body{overflow:hidden}
       <p class="now rv">Looking for<br>the next<br>good thing.</p>
       <a class="mail rv" href="mailto:ash@1stman.kr">ash@1stman.kr</a>
     </div>
+    <div class="endzone" aria-hidden="true"><span>&darr;</span></div>
   </div>
 </section>
 
@@ -227,6 +229,13 @@ html.lock,html.lock body{overflow:hidden}
     face.setAttribute('aria-expanded','false'); root.classList.remove('lock');
     if(io) io.disconnect(); face.focus({preventScroll:true});
   }
+  var leaving=false;
+  sheet.addEventListener('scroll',function(){
+    if(leaving||!sheet.classList.contains('open')) return;
+    if(sheet.scrollTop+sheet.clientHeight>=sheet.scrollHeight-4){
+      leaving=true; setTimeout(function(){ shut(); leaving=false; },250);
+    }
+  },{passive:true});
   face.addEventListener('click',open);
   close.addEventListener('click',shut);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&sheet.classList.contains('open')) shut(); });
