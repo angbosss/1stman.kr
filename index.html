@@ -102,6 +102,41 @@ a:hover{border-bottom-width:2px}
   .line>span,.portrait,.sub,.info .blk,.top::before,.base::before{animation:none;transform:none;opacity:1;filter:none}
   .nod{animation:none;transform:rotate(30deg)}
 }
+
+/* ---------- about sheet (opens from the face) ---------- */
+.portrait{cursor:pointer;-webkit-tap-highlight-color:transparent;border:0;background:none;padding:0;color:inherit}
+.portrait:focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+html.lock,html.lock body{overflow:hidden}
+.about{position:fixed;inset:0;z-index:20;background:var(--paper);overflow-y:auto;-webkit-overflow-scrolling:touch;
+  transform:translateY(100%);visibility:hidden;transition:transform .8s var(--ease),visibility 0s linear .8s}
+.about.open{transform:none;visibility:visible;transition:transform .8s var(--ease),visibility 0s}
+.ab{width:100%;max-width:440px;margin:0 auto;padding:var(--pad)}
+.ab-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;background:var(--paper);
+  padding:14px 0 10px;border-bottom:1px solid var(--ink);font-size:12px;letter-spacing:0.08em;font-weight:600}
+.ab-close{font:inherit;letter-spacing:inherit;background:none;border:0;padding:12px 0 12px 16px;margin:-12px 0;cursor:pointer;color:inherit}
+.sec{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:48px 0;border-bottom:1px solid #e3e3e3}
+.sec:last-child{border-bottom:0;min-height:52vh}
+.lbl2{font-size:12px;letter-spacing:0.08em;font-weight:600;margin:0 0 22px}
+.hero{margin:0;font-weight:700;font-size:clamp(64px,19vw,88px);line-height:0.9;letter-spacing:-0.055em}
+.hero-sub{margin:20px 0 0;font-size:16px;font-weight:500}
+.yr{list-style:none;margin:0;padding:0}
+.yr li{display:grid;grid-template-columns:4.2ch 1fr;column-gap:18px;align-items:baseline;padding:10px 0;border-top:1px solid var(--ink)}
+.yr li:last-child{border-bottom:1px solid var(--ink)}
+.yr b{font-weight:700;font-size:15px}
+.yr span{font-size:clamp(22px,6.4vw,28px);font-weight:600;line-height:1.1;letter-spacing:-0.025em}
+.yr small{display:block;font-size:13px;font-weight:500;letter-spacing:0;margin-top:4px}
+.words{margin:0;font-weight:700;font-size:clamp(46px,14vw,64px);line-height:0.95;letter-spacing:-0.045em}
+.words + p{margin:22px 0 0;font-size:16px;font-weight:500;text-align:right}
+.now{margin:0;font-weight:700;font-size:clamp(36px,10.6vw,44px);line-height:1.02;letter-spacing:-0.035em}
+.mail{display:inline-block;margin-top:28px;font-size:18px;font-weight:600}
+
+/* scroll reveal: pieces gather as they arrive */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease),letter-spacing .9s var(--ease)}
+.rv.wide{letter-spacing:0.02em}
+.rv.in{opacity:1;transform:none}
+.hero.rv.in,.words.rv.in{letter-spacing:-0.05em}
+.yr li.rv{transition-delay:calc(var(--d,0) * 90ms)}
+@media (prefers-reduced-motion: reduce){.about,.rv{transition:none}.rv{opacity:1;transform:none}}
 @media (min-width:600px) and (min-height:700px){.page{min-height:0;height:min(100dvh,820px);--pad:28px}}
 </style>
 </head>
@@ -114,9 +149,9 @@ a:hover{border-bottom-width:2px}
   </header>
 
   <main class="stage">
-    <div class="portrait">
+    <button class="portrait" type="button" aria-label="About An Se Hwan" aria-controls="about" aria-expanded="false">
       <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
-    </div>
+    </button>
     <p class="sub">Imported. Tried.<br>Approved.</p>
   </main>
 
@@ -138,5 +173,64 @@ a:hover{border-bottom-width:2px}
   </footer>
 
 </div>
+
+<section class="about" id="about" aria-label="About An Se Hwan" aria-hidden="true">
+  <div class="ab">
+    <div class="ab-bar"><span>ABOUT</span><button class="ab-close" type="button">CLOSE</button></div>
+
+    <div class="sec">
+      <h2 class="hero rv wide">An<br>Se Hwan</h2>
+      <p class="hero-sub rv">Founder, 1STMAN CO., LTD.</p>
+    </div>
+
+    <div class="sec">
+      <p class="lbl2 rv">Things I&rsquo;ve brought in</p>
+      <ul class="yr">
+        <li class="rv" style="--d:0"><b>2008</b><span>Motorcycle parts<small>from Taiwan</small></span></li>
+        <li class="rv" style="--d:1"><b>2011</b><span>GoPro</span></li>
+        <li class="rv" style="--d:2"><b>2014</b><span>DJI · Insta360</span></li>
+        <li class="rv" style="--d:3"><b>2014</b><span>FREITAG<small>Official F-dealer</small></span></li>
+      </ul>
+    </div>
+
+    <div class="sec">
+      <p class="lbl2 rv">Off the clock</p>
+      <p class="words rv wide">Snowboards.<br>Drives.<br>Travels.</p>
+      <p class="rv">Usually comes back<br>with something.</p>
+    </div>
+
+    <div class="sec">
+      <p class="lbl2 rv">Now</p>
+      <p class="now rv">Looking for<br>the next<br>good thing.</p>
+      <a class="mail rv" href="mailto:ash@1stman.kr">ash@1stman.kr</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var face=document.querySelector('.portrait'), sheet=document.getElementById('about'),
+      close=sheet.querySelector('.ab-close'), root=document.documentElement;
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('in'); });
+  },{root:sheet,threshold:0.25}):null;
+  var items=sheet.querySelectorAll('.rv');
+  function open(){
+    sheet.scrollTop=0; items.forEach(function(el){el.classList.remove('in');});
+    sheet.classList.add('open'); sheet.setAttribute('aria-hidden','false');
+    face.setAttribute('aria-expanded','true'); root.classList.add('lock');
+    if(io){ items.forEach(function(el){io.observe(el);}); } else { items.forEach(function(el){el.classList.add('in');}); }
+    setTimeout(function(){close.focus({preventScroll:true});},300);
+  }
+  function shut(){
+    sheet.classList.remove('open'); sheet.setAttribute('aria-hidden','true');
+    face.setAttribute('aria-expanded','false'); root.classList.remove('lock');
+    if(io) io.disconnect(); face.focus({preventScroll:true});
+  }
+  face.addEventListener('click',open);
+  close.addEventListener('click',shut);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&sheet.classList.contains('open')) shut(); });
+})();
+</script>
 </body>
 </html>
