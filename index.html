@@ -12,7 +12,7 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=Song+Myung&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=Gothic+A1:wght@900&family=Song+Myung&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#000;--paper:#fff;--grey:#767676;--pad:clamp(20px,6vw,36px);--gungsuh:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif}
 *{box-sizing:border-box}
@@ -32,12 +32,14 @@ a:hover{border-bottom-width:2px}
 .nod{height:var(--s);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
 
 .card{border-top:1px solid var(--ink);padding-top:14px;display:grid;gap:18px}
-.name{font-family:var(--gungsuh);font-size:26px;line-height:1.1;letter-spacing:0.04em;margin:0}
-.name small{display:block;margin-top:6px;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:0.08em;font-weight:500}
-.info{display:grid;grid-template-columns:72px 1fr;column-gap:12px;row-gap:8px;margin:0;font-size:12px;line-height:1.4}
-.info dt{color:var(--grey)}
-.info dd{margin:0}
-
+.sub{margin:12px 0 0;font-size:14px;line-height:1.35;font-weight:500;letter-spacing:-0.005em}
+.logo{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:8px;font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:900;line-height:0.9}
+.lg-s{font-size:20px;letter-spacing:-0.04em}
+.lg-m{font-size:64px;letter-spacing:-0.07em}
+.lg-e{flex-basis:100%;margin-top:8px;font-family:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-size:11px;letter-spacing:0.1em;line-height:1}
+.info{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:14px;font-size:12px;line-height:1.4}
+.info .wide{grid-column:1/-1}
+.lbl{display:block;color:var(--grey);font-size:11px;margin-bottom:3px}
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
 
 /* intro sequence */
@@ -61,6 +63,7 @@ a:hover{border-bottom-width:2px}
 
   <header class="top">
     <p class="slogan rise" style="--i:0">Good things,<br>well introduced.</p>
+    <p class="sub rise" style="--i:1">Tried first. Told well.<br>Shared with people of taste.</p>
   </header>
 
   <main class="stage">
@@ -70,13 +73,12 @@ a:hover{border-bottom-width:2px}
   </main>
 
   <footer class="card">
-    <p class="name rise" style="--i:2">주식회사 일인자<small>1STMAN CO., LTD.</small></p>
-    <dl class="info">
-      <dt class="rise" style="--i:3">Business</dt><dd class="rise" style="--i:3">Import &amp; Distribution, since 2008</dd>
-      <dt class="rise" style="--i:4">CEO</dt><dd class="rise" style="--i:4">An Se Hwan · 안세환</dd>
-      <dt class="rise" style="--i:5">E-mail</dt><dd class="rise" style="--i:5"><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></dd>
-      <dt class="rise" style="--i:6">Address</dt><dd class="rise" style="--i:6">B1, 35, Dosan-daero 85-gil,<br>Gangnam-gu, Seoul, Korea</dd>
-    </dl>
+    <div class="logo rise" style="--i:2"><span class="lg-s">주식회사</span><span class="lg-m">일인자</span><span class="lg-e">1STMAN CO., LTD.</span></div>
+    <div class="info">
+      <div class="rise" style="--i:3"><span class="lbl">CEO</span>An Se Hwan</div>
+      <div class="rise" style="--i:4"><span class="lbl">E-mail</span><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></div>
+      <div class="rise wide" style="--i:5"><span class="lbl">Address</span>B1, 35, Dosan-daero 85-gil, Gangnam-gu, Seoul, Korea</div>
+    </div>
   </footer>
 
 </div>
