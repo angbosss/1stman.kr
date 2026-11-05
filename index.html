@@ -22,26 +22,27 @@ a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
 a:hover{border-bottom-width:2px}
 
 /* one vertical sheet, centred on wide screens */
-.page{width:100%;max-width:480px;margin:0 auto;min-height:100vh;min-height:100dvh;padding:var(--pad);display:grid;grid-template-rows:auto 1fr auto;gap:20px}
+.page{width:100%;max-width:480px;margin:0 auto;min-height:100vh;min-height:100dvh;padding:var(--pad);display:grid;grid-template-rows:auto 1fr auto;gap:16px}
 
 .top{padding-top:14px;position:relative}
 .slogan{margin:0;font-size:clamp(38px,11vw,52px);line-height:1.02;font-weight:700;letter-spacing:-0.035em}
 .line{display:block;overflow:hidden;padding-bottom:0.08em}
 .line > span{display:block}
 
-.stage{display:flex;flex-direction:column;justify-content:center}
-.portrait{--s:min(46vh,72vw,330px);width:var(--s);height:var(--s);margin:0 auto;display:flex;align-items:center;justify-content:center}
+.stage{display:flex;flex-direction:column}
+.portrait{--s:min(46vh,80vw,370px);width:var(--s);height:var(--s);margin:auto;position:relative;top:calc(var(--s) * -0.08);display:flex;align-items:center;justify-content:center}
 .nod{height:var(--s);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
-.sub{margin:14px 0 0;text-align:right;font-size:15px;line-height:1.3;font-weight:500;letter-spacing:-0.01em}
+.sub{margin:0;text-align:right;font-size:16px;line-height:1.25;font-weight:500;letter-spacing:-0.01em}
 
-.base{padding-top:12px;position:relative;display:grid;gap:14px}
-.info{margin:0;padding:0;list-style:none;font-size:12px;line-height:1.5}
+.base{padding-top:8px;position:relative;display:grid;gap:12px}
+.info{margin:0;padding:0;list-style:none;font-size:15.5px;line-height:1.35;letter-spacing:-0.005em}
 .info li{display:flex;gap:10px}
-.info li > span:first-child{flex:0 0 52px;color:var(--grey)}
+.info li{padding:2px 0}
+.info li > span:first-child{flex:0 0 72px;color:var(--grey)}
 .logo{justify-self:end;text-align:right;line-height:1}
-.logo .ko{display:block;font-family:'Hahmlet','Noto Serif KR',serif;font-weight:700;font-size:22px;letter-spacing:-0.02em}
-.logo .ko i{font-style:normal;font-weight:500;font-size:13px;letter-spacing:0;margin-right:4px;vertical-align:2px}
-.logo .en{display:block;margin-top:6px;font-size:9px;letter-spacing:0.16em;font-weight:500}
+.logo .ko{display:block;font-family:'Hahmlet','Noto Serif KR',serif;font-weight:700;font-size:15.5px;letter-spacing:-0.01em}
+.logo .ko i{font-style:normal;font-weight:500;margin-right:4px}
+.logo .en{display:block;margin-top:4px;font-size:10px;letter-spacing:0.14em;font-weight:500}
 
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
 
