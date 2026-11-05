@@ -34,12 +34,13 @@ a:hover{border-bottom-width:2px}
 .nod{height:var(--s);width:auto;display:block;transform-origin:50% 50%;animation:nod 6s ease-in-out infinite}
 .sub{margin:0;text-align:right;font-size:16px;line-height:1.25;font-weight:500;letter-spacing:-0.01em}
 
-.base{margin-top:22px;padding-top:14px;position:relative;display:grid;gap:10px}
-.info{margin:0;padding:0;list-style:none;font-size:15.5px;line-height:1.35;letter-spacing:-0.005em}
-.info li{display:flex;gap:10px}
-.info li{padding:2px 0}
-.info .ko{font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:700;letter-spacing:-0.02em;margin-right:6px}
-.info li > span:first-child{flex:0 0 72px;color:var(--grey)}
+.base{margin-top:22px;padding-top:10px;position:relative}
+.info{display:grid;grid-template-columns:7fr 5fr;column-gap:16px;margin:0;font-size:clamp(12.5px,3.6vw,14px);line-height:1.4;letter-spacing:-0.005em}
+.info .blk{display:flex;flex-direction:column}
+.info .blk > *{display:block;white-space:nowrap}
+.info .hd{font-weight:700}
+.info .ko{font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:700;letter-spacing:-0.03em}
+.info .gap{height:1.4em}
 
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
 
@@ -71,14 +72,14 @@ a:hover{border-bottom-width:2px}
 @keyframes focus{from{opacity:0;filter:blur(8px);transform:translateX(12px)}to{opacity:1;filter:none;transform:none}}
 
 /* info rows rise one by one */
-.info li{animation:rise .7s var(--ease) both;animation-delay:calc(2.85s + var(--i,0) * 80ms)}
+.info .blk{animation:rise .7s var(--ease) both;animation-delay:calc(2.85s + var(--i,0) * 80ms)}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 @keyframes track{from{opacity:0;letter-spacing:0.3em}to{opacity:1;letter-spacing:normal}}
 
 @media (prefers-reduced-motion: reduce){
   .intro{display:none}
-  .line>span,.portrait,.sub,.info li,.top::before,.base::before{animation:none;transform:none;opacity:1;filter:none}
+  .line>span,.portrait,.sub,.info .blk,.top::before,.base::before{animation:none;transform:none;opacity:1;filter:none}
   .nod{animation:none;transform:rotate(30deg)}
 }
 </style>
@@ -99,12 +100,22 @@ a:hover{border-bottom-width:2px}
   </main>
 
   <footer class="base">
-    <ul class="info">
-      <li style="--i:0"><span>Address</span><span>B1, 35, Dosan-daero 85-gil,<br>Gangnam-gu, Seoul, Korea</span></li>
-      <li style="--i:1"><span>E-mail</span><span><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></span></li>
-      <li style="--i:2"><span>CEO</span><span>An Se Hwan</span></li>
-      <li style="--i:3"><span>Company</span><span><b class="ko">주식회사 일인자</b> 1STMAN CO., LTD.</span></li>
-    </ul>
+    <div class="info">
+      <div class="blk" style="--i:0">
+        <span class="hd ko">주식회사 일인자</span>
+        <span>1STMAN CO., LTD.</span>
+        <span class="gap" aria-hidden="true"></span>
+        <span>B1, 35, Dosan-daero 85-gil</span>
+        <span>Gangnam-gu, Seoul, Korea</span>
+      </div>
+      <div class="blk" style="--i:1">
+        <span class="hd">An Se Hwan</span>
+        <span>CEO</span>
+        <span class="gap" aria-hidden="true"></span>
+        <span><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></span>
+        <span>1stman.kr</span>
+      </div>
+    </div>
   </footer>
 
 </div>
