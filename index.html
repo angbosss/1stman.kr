@@ -22,7 +22,7 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Gothic+A1:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Gothic+A1:wght@500;700;900&family=Black+Han+Sans&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#000;--paper:#fff;--grey:#767676;--pad:clamp(20px,6vw,36px);--gungsuh:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box}
@@ -59,9 +59,9 @@ a:hover{border-bottom-width:2px}
 
 /* ---------- motion ---------- */
 .intro{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:var(--paper);pointer-events:none;animation:introOut .55s var(--ease) 1.75s forwards}
-.mark{display:flex;flex-direction:column;align-items:flex-start;font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink)}
-.mark .corp{font-weight:700;font-size:clamp(16px,4.4vw,24px);letter-spacing:0.32em;margin:0 0 0.55em 0.12em;opacity:0;animation:corp .6s var(--ease) .75s both}
-.mark .big{display:flex;font-weight:900;font-size:clamp(96px,30vw,168px);line-height:1;letter-spacing:-0.06em}
+.mark{display:flex;flex-direction:column;align-items:flex-end;font-family:'Gothic A1','Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:var(--ink)}
+.mark .corp{order:2;font-weight:700;font-size:clamp(14px,3.8vw,20px);letter-spacing:0.32em;margin:0.25em -0.32em 0 0;opacity:0;animation:corp .6s var(--ease) .75s both}
+.mark .big{order:1;display:flex;font-family:'Black Han Sans','Gothic A1',sans-serif;font-weight:400;font-size:clamp(104px,32vw,180px);line-height:1;letter-spacing:-0.04em}
 .mark .big i{font-style:normal;display:inline-block;opacity:0;transform-origin:50% 60%;animation:stamp .42s cubic-bezier(.2,1.4,.4,1) both}
 .mark .big i:nth-child(1){animation-delay:.08s}
 .mark .big i:nth-child(2){animation-delay:.28s}
