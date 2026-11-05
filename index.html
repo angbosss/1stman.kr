@@ -34,6 +34,20 @@ h1{margin:0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',se
 .sell{display:block;font-size:12px;line-height:1.35;font-weight:700;text-transform:uppercase;letter-spacing:0.04em}
 .foot .c1{grid-column:1/6}.foot .c3{grid-column:7/10}.foot .c4{grid-column:10/13}
 @keyframes nod{0%,33.3%{transform:rotate(30deg)}36%{transform:rotate(24deg)}39%{transform:rotate(32deg)}41.7%,91.7%{transform:rotate(30deg)}94.4%{transform:rotate(24deg)}97.4%{transform:rotate(32deg)}100%{transform:rotate(30deg)}}
+
+/* intro sequence */
+.intro{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:var(--paper);pointer-events:none;animation:introOut .55s ease 1.4s forwards}
+.intro span{font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',serif;font-size:clamp(40px,min(8.6vw,13vh),150px);letter-spacing:0.06em;white-space:nowrap;animation:introIn .7s ease both}
+@keyframes introIn{from{opacity:0;letter-spacing:0.18em}to{opacity:1;letter-spacing:0.06em}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+.portrait{animation:pop .7s cubic-bezier(.2,1.5,.4,1) 1.75s both}
+@keyframes pop{from{opacity:0;transform:scale(.55) translateY(24px)}to{opacity:1;transform:none}}
+.nod{animation-delay:2.6s;animation-fill-mode:both}
+.rise{animation:rise .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(2.15s + var(--i,0) * 90ms)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.row{animation:rule .6s ease 2.05s both}
+@keyframes rule{from{border-top-color:transparent}to{border-top-color:var(--rule)}}
+@media (prefers-reduced-motion: reduce){.intro{display:none}.portrait,.rise,.row{animation:none}}
 @media (prefers-reduced-motion: reduce){.nod{animation:none;transform:rotate(30deg)}}
 @media (max-width:720px){
   .row{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:14px}
@@ -43,26 +57,27 @@ h1{margin:0;font-family:'Gungsuh','궁서','GungSeo','궁서체','Song Myung',se
 </style>
 </head>
 <body>
+<div class="intro" aria-hidden="true"><span>주식회사 일인자</span></div>
 <div class="page">
 
   <header class="row">
-    <div class="cell c1"><span class="idx">Company</span><b>주식회사 일인자</b><br>1STMAN CO., LTD.</div>
-    <div class="cell c2"><span class="idx">What we do</span>Import &amp; Distribution<br>Since 2008 · Est. 2014</div>
-    <div class="cell c3"><span class="idx">How we do it</span><span class="sell">We sell the real thing.<br>Exceptionally well.</span></div>
-    <div class="cell c4"><span class="idx">Web</span>1stman.kr</div>
+    <div class="cell c1 rise" style="--i:0"><span class="idx">Company</span><b>주식회사 일인자</b><br>1STMAN CO., LTD.</div>
+    <div class="cell c2 rise" style="--i:1"><span class="idx">What we do</span>Import &amp; Distribution<br>Since 2008 · Est. 2014</div>
+    <div class="cell c3 rise" style="--i:2"><span class="idx">How we do it</span><span class="sell">We sell the real thing.<br>Exceptionally well.</span></div>
+    <div class="cell c4 rise" style="--i:3"><span class="idx">Web</span>1stman.kr</div>
   </header>
 
   <main class="stage">
     <div class="portrait">
       <img class="nod" src="portrait.png" alt="Line drawing of An Se Hwan">
     </div>
-    <h1>주식회사 일인자</h1>
+    <h1 class="rise" style="--i:4">주식회사 일인자</h1>
   </main>
 
   <footer class="row foot">
-    <div class="cell c1"><span class="idx">Statement</span><p class="say" style="margin:0">The man who will change the world.<br>Just so you know.</p></div>
-    <div class="cell c3"><span class="idx">Contact</span>An Se Hwan · 안세환<br><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></div>
-    <div class="cell c4"><span class="idx">Visit</span>B1, 35, Dosan-daero 85-gil<br>Gangnam-gu, Seoul, Korea</div>
+    <div class="cell c1 rise" style="--i:5"><span class="idx">Statement</span><p class="say" style="margin:0">The man who will change the world.<br>Just so you know.</p></div>
+    <div class="cell c3 rise" style="--i:6"><span class="idx">Contact</span>An Se Hwan · 안세환<br><a href="mailto:ash@1stman.kr">ash@1stman.kr</a></div>
+    <div class="cell c4 rise" style="--i:7"><span class="idx">Visit</span>B1, 35, Dosan-daero 85-gil<br>Gangnam-gu, Seoul, Korea</div>
   </footer>
 
 </div>
